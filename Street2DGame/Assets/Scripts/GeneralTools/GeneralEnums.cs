@@ -20,12 +20,6 @@ namespace Nocturne.Enums
         None
     }
 
-    public enum ShadowType
-    {
-        Soft,
-        Hard
-    }
-
     public enum VSyncMode
     {
         None,
@@ -40,5 +34,32 @@ namespace Nocturne.Enums
         Dashing,
         Aiming,
         Firing
+    }
+    public enum ItemType
+    {
+        Healable,
+        ManaGenerator,
+        Standard
+    }
+    public enum PlayerAnimatorLayers
+    {
+        Walk,
+        Idle
+    }
+    public enum PlayerStatus
+    {
+        Idle,
+        Walking,
+        Sprinting,
+        Crouching
+    }
+
+    public enum JumpState
+    {
+        Jumping,
+        DoubleJumping,
+        InfiniteJumping,
+        Falling,
+        None
     }
 }
