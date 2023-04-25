@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundEntryState : MeleeBaseState
@@ -19,9 +17,9 @@ public class GroundEntryState : MeleeBaseState
     public override void OnUpdateState()
     {
         base.OnUpdateState();
-        if(fixedtime >= duration)
+        if (fixedtime >= duration)
         {
-            if(shouldCombo)
+            if (shouldCombo)
             {
                 //Siguiente combo;
                 currentManager.SetNextState(new GroundComboState());
@@ -81,6 +79,7 @@ public class GroundFinisherState : MeleeBaseState
         animator.SetTrigger($"Attack{attackIndex}");
         Debug.Log($"Ataque {attackIndex} activo");
     }
+
     public override void OnUpdateState()
     {
         base.OnUpdateState();

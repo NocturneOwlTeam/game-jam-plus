@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ComboCharacter : MonoBehaviour
+public class CharacterManager : MonoBehaviour
 {
     // Aqui esta basicamente el cerebro, el que maneja el CombatManager (que es el State Machine o maquina de estado) para gestionar todo a la vez y se comunique con el usuario.
     //Y el que establece el Idle State o neutro como la base, porque sino vamos a tener problemas manejando el resto.

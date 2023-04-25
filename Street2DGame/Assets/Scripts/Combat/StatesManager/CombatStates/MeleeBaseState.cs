@@ -49,7 +49,7 @@ public class MeleeBaseState : ICombatState
         currentManager = manager;
         animator = manager.GetComponent<Animator>();
         collidersDamaged = new List<Collider2D>();
-        hitcollider = manager.GetComponent<ComboCharacter>().hitbox;
+        hitcollider = manager.GetComponent<CharacterManager>().hitbox;
         //hitEffect = manager.GetComponent<ComboCharacter>().hitEffect;
     }
 
