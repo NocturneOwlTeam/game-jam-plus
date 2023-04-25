@@ -1,12 +1,12 @@
 //Este estado esta intencionalmente puesto como vacio. Ya veran porque...
 public class IdleCombatState : IState
 {
-    public void OnEnterState(StateMachine manager)
+    public void OnEnterState(StateMachineManager manager)
     {
         return;
     }
 
-    public void OnExitState(StateMachine manager)
+    public void OnExitState(StateMachineManager manager)
     {
         return;
     }

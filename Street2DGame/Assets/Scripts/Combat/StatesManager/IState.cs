@@ -1,8 +1,8 @@
 public interface IState
 {
-    public void OnEnterState(StateMachine manager);
+    public void OnEnterState(StateMachineManager manager);
 
-    public void OnExitState(StateMachine manager);
+    public void OnExitState(StateMachineManager manager);
 
     public void OnUpdateState();
 

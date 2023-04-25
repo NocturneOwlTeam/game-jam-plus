@@ -30,7 +30,7 @@ public class MeleeBaseState : IState
     //Nota: si quieres que haya daño independiente, modifica este
     protected int damage;
 
-    public StateMachine currentManager;
+    public StateMachineManager currentManager;
 
     //Guarda el collider del ataque con el cual daña a otros
     protected Collider2D hitcollider;
@@ -44,7 +44,7 @@ public class MeleeBaseState : IState
     //Input buffer
     private float attackPressedTimer = 0f;
 
-    public virtual void OnEnterState(StateMachine manager)
+    public virtual void OnEnterState(StateMachineManager manager)
     {
         currentManager = manager;
         animator = manager.GetComponent<Animator>();
@@ -53,7 +53,7 @@ public class MeleeBaseState : IState
         //hitEffect = manager.GetComponent<ComboCharacter>().hitEffect;
     }
 
-    public virtual void OnExitState(StateMachine manager)
+    public virtual void OnExitState(StateMachineManager manager)
     {
         return;
     }

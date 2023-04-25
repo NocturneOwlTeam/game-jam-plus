@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class StateMachineManager : MonoBehaviour
 {
     //Este sera el estado principal
     private IState idleState;
