@@ -62,4 +62,13 @@ namespace Nocturne.Enums
         Falling,
         None
     }
+
+    public enum TeamIndex
+    {
+        None = -1,
+        Neutral = 0,
+        Player,
+        Enemy,
+        Count
+    }
 }
