@@ -6,7 +6,7 @@ public class CharacterManager : MonoBehaviour
     //Y el que establece el Idle State o neutro como la base, porque sino vamos a tener problemas manejando el resto.
     //Adicionalmente, sera el intermediario entre el CombatManager y los demas manejadores de estado.
     [SerializeField]
-    private CombatManager combatManager;
+    private StateMachine combatManager;
 
     public Collider2D hitbox;
 

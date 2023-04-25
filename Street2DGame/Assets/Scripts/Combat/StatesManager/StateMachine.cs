@@ -1,24 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatManager : MonoBehaviour
+public class StateMachine : MonoBehaviour
 {
     //Este sera el estado principal
-    private ICombatState idleState;
+    private IState idleState;
 
-    public ICombatState currentState { get; private set; }
+    public IState currentState { get; private set; }
 
-    private ICombatState nextState;
+    private IState nextState;
 
     protected Animator combatAnimator;
 
-    void Awake()
+    private void Awake()
     {
         SetNextStateAsMain();
     }
 
-    public void SwitchState(ICombatState newState)
+    public void SwitchState(IState newState)
     {
         nextState = null;
         currentState?.OnExitState(this);
@@ -26,13 +24,13 @@ public class CombatManager : MonoBehaviour
         currentState.OnEnterState(this);
     }
 
-    public void SetNextState(ICombatState newNextState) => nextState = newNextState;
+    public void SetNextState(IState newNextState) => nextState = newNextState;
 
     public void SetNextStateAsMain() => nextState = idleState;
 
-    void Update()
+    private void Update()
     {
-        if(nextState != null)
+        if (nextState != null)
         {
             SwitchState(nextState);
         }
@@ -51,7 +49,7 @@ public class CombatManager : MonoBehaviour
 
     private void OnValidate()
     {
-        if(idleState == null)
+        if (idleState == null)
         {
             idleState = new IdleCombatState();
         }

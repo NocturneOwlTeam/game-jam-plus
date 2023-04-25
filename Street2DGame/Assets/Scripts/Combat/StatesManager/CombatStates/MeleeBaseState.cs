@@ -5,7 +5,7 @@ using UnityEngine;
 
 //Funciona como el intermediario base para usarse con cualquier tipo de combo o ataque.
 //LLama a: cambio de animacion, input, daño y cambio de estado.
-public class MeleeBaseState : ICombatState
+public class MeleeBaseState : IState
 {
     //Estos son para que cualquier variable sean afectados por el Update, Fixed Update y Late Update.
     //Sabiendo lo obsesinados que estan los jugadores de lucha con eso de input buffer, input delay, etc, estos seran importantes más adelante:
@@ -30,7 +30,7 @@ public class MeleeBaseState : ICombatState
     //Nota: si quieres que haya daño independiente, modifica este
     protected int damage;
 
-    public CombatManager currentManager;
+    public StateMachine currentManager;
 
     //Guarda el collider del ataque con el cual daña a otros
     protected Collider2D hitcollider;
@@ -44,7 +44,7 @@ public class MeleeBaseState : ICombatState
     //Input buffer
     private float attackPressedTimer = 0f;
 
-    public virtual void OnEnterState(CombatManager manager)
+    public virtual void OnEnterState(StateMachine manager)
     {
         currentManager = manager;
         animator = manager.GetComponent<Animator>();
@@ -53,7 +53,7 @@ public class MeleeBaseState : ICombatState
         //hitEffect = manager.GetComponent<ComboCharacter>().hitEffect;
     }
 
-    public virtual void OnExitState(CombatManager manager)
+    public virtual void OnExitState(StateMachine manager)
     {
         return;
     }

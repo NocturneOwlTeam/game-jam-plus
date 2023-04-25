@@ -4,7 +4,7 @@ using UnityEngine;
 public class AirEntryState : MeleeBaseState
 {
 
-    public override void OnEnterState(CombatManager manager)
+    public override void OnEnterState(StateMachine manager)
     {
         base.OnEnterState(manager);
 
@@ -37,7 +37,7 @@ public class AirEntryState : MeleeBaseState
 
 public class AirComboState : MeleeBaseState
 {
-    public override void OnEnterState(CombatManager manager)
+    public override void OnEnterState(StateMachine manager)
     {
         base.OnEnterState(manager);
 
@@ -71,7 +71,7 @@ public class AirComboState : MeleeBaseState
 public class AirFinisherState : MeleeBaseState
 {
     //Opcional: como es combate aereo, recomiendo agregar un delay para este tipo de combo para que el jugador no abuse de este.
-    public override void OnEnterState(CombatManager manager)
+    public override void OnEnterState(StateMachine manager)
     {
         base.OnEnterState(manager);
 

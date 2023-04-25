@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GroundEntryState : MeleeBaseState
 {
-    public override void OnEnterState(CombatManager manager)
+    public override void OnEnterState(StateMachine manager)
     {
         base.OnEnterState(manager);
 
@@ -35,7 +35,7 @@ public class GroundEntryState : MeleeBaseState
 
 public class GroundComboState : MeleeBaseState
 {
-    public override void OnEnterState(CombatManager manager)
+    public override void OnEnterState(StateMachine manager)
     {
         base.OnEnterState(manager);
 
@@ -68,7 +68,7 @@ public class GroundComboState : MeleeBaseState
 
 public class GroundFinisherState : MeleeBaseState
 {
-    public override void OnEnterState(CombatManager manager)
+    public override void OnEnterState(StateMachine manager)
     {
         base.OnEnterState(manager);
 
