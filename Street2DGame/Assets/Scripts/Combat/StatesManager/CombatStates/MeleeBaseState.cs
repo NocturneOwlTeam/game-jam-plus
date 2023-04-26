@@ -1,5 +1,7 @@
 using Lean.Pool;
 using Nocturne.Enums;
+using Nocturne.Health;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,6 +45,8 @@ public class MeleeBaseState : IState
 
     //Input buffer
     private float attackPressedTimer = 0f;
+
+    public static Action OnAttackLanded;
 
     public virtual void OnEnterState(StateMachineManager manager)
     {
@@ -88,14 +92,16 @@ public class MeleeBaseState : IState
         {
             if (!collidersDamaged.Contains(collidersToDamage[i]))
             {
-                TeamComponent teamComponent = collidersToDamage[i].GetComponentInChildren<TeamComponent>();
-
+                //TeamComponent teamComponent = collidersToDamage[i].GetComponentInChildren<TeamComponent>();
+                HealthSystem targetHealth = collidersToDamage[i].GetComponentInChildren<HealthSystem>();
                 //Revisan aqui si tienen algun teamcomponent y dañador activo.
-                if (teamComponent && teamComponent.currentTeamIndex == TeamIndex.Enemy)
+                if (targetHealth && targetHealth.CompareTag("Enemy"))
                 {
                     //Para Spawnear el efecto.
                     //LeanPool.Spawn(hitEffect, collidersToDamage[i].transform);
                     Debug.Log($"Enemy has taken {attackIndex} damage");
+                    OnAttackLanded?.Invoke();
+                    targetHealth.Damage(attackIndex);
                     collidersDamaged.Add(collidersToDamage[i]);
                 }
             }

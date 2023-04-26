@@ -5,4 +5,6 @@ public interface IStateMachine
     public void SetNextStateAsMain();
 
     public void SetNextState(IState newNextState);
+
+    public void StartMainState();
 }

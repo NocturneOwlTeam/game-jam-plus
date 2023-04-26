@@ -90,3 +90,28 @@ public class GroundFinisherState : MeleeBaseState
         }
     }
 }
+
+public class SprintAttackState : MeleeBaseState
+{
+    public override void OnEnterState(StateMachineManager manager)
+    {
+        base.OnEnterState(manager);
+
+        //Ataque:
+        attackIndex = 1;
+        duration = 0.75f;
+        //NOTA: reemplazalo por el nombre de la animacion relacionada a este ataque.
+        animator.SetTrigger($"Attack{attackIndex}");
+        Debug.Log($"Ataque {attackIndex} activo");
+    }
+
+    public override void OnUpdateState()
+    {
+        base.OnUpdateState();
+        if (fixedtime >= duration)
+        {
+            //Retornar a estado principal o idle o movement o a un nuevo combo, puesto que este es el ultimo.
+            currentManager.SetNextStateAsMain();
+        }
+    }
+}

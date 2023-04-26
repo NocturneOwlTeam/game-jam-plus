@@ -9,8 +9,6 @@ public class StateMachineManager : MonoBehaviour
 
     private IState nextState;
 
-    protected Animator combatAnimator;
-
     private void Awake()
     {
         SetNextStateAsMain();
@@ -47,11 +45,17 @@ public class StateMachineManager : MonoBehaviour
         currentState?.OnLateUpdate();
     }
 
-    private void OnValidate()
+    //Esto pueede ser importante para otros más adelante.
+    public virtual void StartMainState()
     {
         if (idleState == null)
         {
             idleState = new IdleCombatState();
         }
+    }
+
+    private void OnValidate()
+    {
+        StartMainState();
     }
 }

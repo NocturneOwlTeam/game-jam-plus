@@ -46,12 +46,18 @@ namespace Nocturne.Health
 
         private void UpdateHealthBar()
         {
-            healthBar.DOFillAmount(healthSystem.GetHealth() / healthSystem.GetMaxHealth(), 0.5f);
+            if (healthBar)
+            {
+                healthBar.DOFillAmount(healthSystem.GetHealth() / healthSystem.GetMaxHealth(), 0.5f);
+            }
         }
 
         private void UpdateHealthText()
         {
-            textHealth.text = $"{healthSystem.GetHealth()}/{healthSystem.GetMaxHealth()}";
+            if (textHealth)
+            {
+                textHealth.text = $"{healthSystem.GetHealth()}/{healthSystem.GetMaxHealth()}";
+            }
         }
 
         private void OnEnable()
