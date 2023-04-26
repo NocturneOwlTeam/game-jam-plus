@@ -94,8 +94,11 @@ public class ComboSystem : MonoBehaviour
             //Ocultar el contador si no se ha mostrado;
             HideUI();
         }
+        SetHighestCombo();
         currentCountdownCombo = 0;
     }
+
+    public void SetHighestCombo() => highestComboCount = Mathf.Max(highestComboCount, currentComboCount);
 
     private void OnEnable()
     {

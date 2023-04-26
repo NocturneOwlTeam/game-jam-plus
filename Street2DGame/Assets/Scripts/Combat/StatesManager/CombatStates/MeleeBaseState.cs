@@ -25,6 +25,8 @@ public class MeleeBaseState : IState
 
     //Determina si el siguiente ataque de la sequencia o combo deberia aparecer o no.
     protected bool shouldCombo;
+    protected bool upperActivated;
+    protected bool heavyActivated;
 
     //El indice del combo o ataque de la secuencia de ataques.
     protected int attackIndex;
@@ -45,6 +47,9 @@ public class MeleeBaseState : IState
 
     //Input buffer
     private float attackPressedTimer = 0f;
+    private float heavyAttackPressedTimer = 0f;
+    private float upPressed = 0f;
+    private float downPressed = 0f;
 
     public static Action OnAttackLanded;
 
@@ -66,7 +71,8 @@ public class MeleeBaseState : IState
     {
         time += Time.deltaTime;
         attackPressedTimer -= Time.deltaTime;
-
+        upPressed -= Time.deltaTime;
+        heavyAttackPressedTimer -= Time.deltaTime;
         if (animator.GetFloat("Weapon.Active") > 0f)
         {
             Attack();
@@ -75,9 +81,29 @@ public class MeleeBaseState : IState
         {
             attackPressedTimer = 2f;
         }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            heavyAttackPressedTimer = 2f;
+        }
+
+        if(Input.GetAxis("Vertical")> 0.1f)
+        {
+            upPressed = 2f;
+        }
         if (attackPressedTimer > 0 && animator.GetFloat("ActiveWindow.Open") > 0f)
         {
             shouldCombo = true;
+        }
+
+        if (heavyAttackPressedTimer > 0 && animator.GetFloat("ActiveWindow.Open") > 0f)
+        {
+            heavyActivated = true;
+        }
+
+        if (upPressed > 0 && animator.GetFloat("ActiveWindow.Open") > 0f)
+        {
+            upperActivated = true;
         }
     }
 
@@ -92,16 +118,16 @@ public class MeleeBaseState : IState
         {
             if (!collidersDamaged.Contains(collidersToDamage[i]))
             {
-                //TeamComponent teamComponent = collidersToDamage[i].GetComponentInChildren<TeamComponent>();
+                TeamComponent teamComponent = collidersToDamage[i].GetComponentInChildren<TeamComponent>();
                 HealthSystem targetHealth = collidersToDamage[i].GetComponentInChildren<HealthSystem>();
                 //Revisan aqui si tienen algun teamcomponent y dañador activo.
-                if (targetHealth && targetHealth.CompareTag("Enemy"))
+                if (targetHealth && teamComponent && teamComponent.currentTeamIndex == TeamIndex.Enemy)
                 {
                     //Para Spawnear el efecto.
                     //LeanPool.Spawn(hitEffect, collidersToDamage[i].transform);
-                    Debug.Log($"Enemy has taken {attackIndex} damage");
+                    Debug.Log($"Enemy has taken {damage} damage");
                     OnAttackLanded?.Invoke();
-                    targetHealth.Damage(attackIndex);
+                    targetHealth.Damage(damage);
                     collidersDamaged.Add(collidersToDamage[i]);
                 }
             }

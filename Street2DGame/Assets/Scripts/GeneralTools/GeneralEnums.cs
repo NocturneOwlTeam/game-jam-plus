@@ -69,6 +69,7 @@ namespace Nocturne.Enums
         Neutral = 0,
         Player,
         Enemy,
-        Count
+        Object,
+        Shadowed
     }
 }
