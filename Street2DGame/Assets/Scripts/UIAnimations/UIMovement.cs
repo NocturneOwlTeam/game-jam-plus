@@ -32,16 +32,16 @@ public class UIMovement : MonoBehaviour
         if (OnStart) MoveDestination();
     }
 
-    public void MoveDestination()
+    public virtual void MoveDestination()
     {
         rectTransform.DOAnchorPos3D(destination, movementTime).SetUpdate(true).SetEase(easeDestination);
     }
-    public void MoveSecondDestination()
+    public virtual void MoveSecondDestination()
     {
         rectTransform.DOAnchorPos3D(secondDestination, movementTime).SetUpdate(true).SetEase(easeDestination);
     }
 
-    public void MoveOrigin()
+    public virtual void MoveOrigin()
     {
         rectTransform.DOAnchorPos3D(origin, movementTime).SetUpdate(true).SetEase(easeOrigin);
     }

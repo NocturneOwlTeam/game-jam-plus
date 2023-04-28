@@ -30,9 +30,9 @@ namespace Nocturne.Health
         public event Action OnMaxHealthChanged;
 
         //For 3D games, change this to a standard collider or charactercontroller, depending on what you use
-        private Collider _characterCollider;
+        private Collider2D _characterCollider;
 
-        private void Awake()
+        private void OnEnable()
         {
             maxHealth = maximumHealth;
             if (startingHealth > 0)
@@ -44,7 +44,8 @@ namespace Nocturne.Health
                 currentHealth = maximumHealth;
             }
 
-            _characterCollider = GetComponent<Collider>();
+            _characterCollider = GetComponent<Collider2D>();
+            _characterCollider.enabled = true;
         }
 
         //Para las pruebas
