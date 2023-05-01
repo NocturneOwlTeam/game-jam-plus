@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIMovement : MonoBehaviour
 {
-    private RectTransform rectTransform;
+    protected RectTransform rectTransform;
 
     [SerializeField]
     private Vector3 destination;
@@ -14,7 +14,7 @@ public class UIMovement : MonoBehaviour
     [SerializeField]
     private float movementTime = 0.4f;
 
-    private Vector3 origin;
+    protected Vector3 origin;
 
     [SerializeField]
     private bool OnStart = false;

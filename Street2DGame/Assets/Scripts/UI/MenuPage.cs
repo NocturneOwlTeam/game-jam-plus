@@ -1,4 +1,6 @@
+using DG.Tweening;
 using UnityEngine;
+using static UnityEngine.UI.ScrollRect;
 
 [RequireComponent(typeof(CanvasGroup))]
 [DisallowMultipleComponent]
@@ -24,6 +26,13 @@ public class MenuPage : UIMovement
     public override void MoveOrigin()
     {
         base.MoveOrigin();
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
+    }
+
+    public void ResetPosition()
+    {
+        rectTransform.DOAnchorPos3D(origin, 0.01f).SetUpdate(true);
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
     }
