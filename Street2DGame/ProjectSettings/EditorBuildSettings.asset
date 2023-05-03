@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Alvaro/MenuAlternative.unity
     guid: 33d118e1a53c5944f9d16f1ee85334c8
   - enabled: 1
-    path: Assets/Scenes/Level3D.unity
-    guid: d7a197b18207e754fbc6e1c0fb81aed7
-  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: a5e59d51a70c77248a8904ea652e44de
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 50b133100da35ab4590743dbb67c521b
   m_configObjects: {}
