@@ -27,7 +27,7 @@ public class MainMenuManager : MonoBehaviour
     {
         menuPages.Push(exitMenu);
         menuPages.Push(mainMenu);
-        mainMenu.MoveDestination();
+        //mainMenu.MoveDestination();
         Time.timeScale = 1;
     }
 

@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Alvaro/MenuAlternative.unity
     guid: 33d118e1a53c5944f9d16f1ee85334c8
+  - enabled: 1
+    path: Assets/Scenes/MainMenuAlvaro.unity
+    guid: a2403b996d7c43242b050f9d84f35152
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: a5e59d51a70c77248a8904ea652e44de

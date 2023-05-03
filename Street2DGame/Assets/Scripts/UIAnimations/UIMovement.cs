@@ -12,7 +12,7 @@ public class UIMovement : MonoBehaviour
     private Vector3 secondDestination;
 
     [SerializeField]
-    private float movementTime = 0.4f;
+    protected float movementTime = 0.4f;
 
     protected Vector3 origin;
 
