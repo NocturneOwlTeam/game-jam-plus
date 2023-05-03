@@ -65,6 +65,9 @@ public class PauseMenu : MonoBehaviour
             Resume();
         }
     }
+
+    public void CanPause(bool pause) => canPause = pause;
+
     public void NextMenu(MenuPage page)
     {
         menuPages.Peek().MoveOrigin();

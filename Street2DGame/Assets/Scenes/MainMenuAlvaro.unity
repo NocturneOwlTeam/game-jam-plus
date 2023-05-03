@@ -5798,10 +5798,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0, z: 0}
   secondDestination: {x: 0, y: 0, z: 0}
-  movementTime: 0.4
+  movementTime: 0.3
   OnStart: 0
   easeOrigin: 12
-  easeDestination: 12
+  easeDestination: 27
   canvasGroup: {fileID: 776358352}
   canFade: 0
 --- !u!225 &776358352
@@ -6472,10 +6472,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0, z: 0}
   secondDestination: {x: 0, y: 0, z: 0}
-  movementTime: 0.4
+  movementTime: 0.3
   OnStart: 0
   easeOrigin: 12
-  easeDestination: 12
+  easeDestination: 27
   canvasGroup: {fileID: 858582440}
   canFade: 0
 --- !u!225 &858582440
@@ -7054,7 +7054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 205, y: -27.4725, z: 0}
   secondDestination: {x: 205, y: -27.4725, z: 0}
-  movementTime: 0.4
+  movementTime: 0.3
   OnStart: 0
   easeOrigin: 12
   easeDestination: 12
@@ -7358,7 +7358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: -205.3158, y: -27.4725, z: 0}
   secondDestination: {x: -205.3158, y: -27.4725, z: 0}
-  movementTime: 0.4
+  movementTime: 0.3
   OnStart: 0
   easeOrigin: 12
   easeDestination: 12
@@ -8977,7 +8977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 205, y: -27.4725, z: 0}
   secondDestination: {x: 205, y: -27.4725, z: 0}
-  movementTime: 0.4
+  movementTime: 0.3
   OnStart: 0
   easeOrigin: 12
   easeDestination: 12
@@ -10643,6 +10643,52 @@ MonoBehaviour:
     Target: {fileID: 1187237459}
     Value: {x: 1, y: 1}
     Ease: 100
+--- !u!1 &1769513472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769513474}
+  - component: {fileID: 1769513473}
+  m_Layer: 0
+  m_Name: SelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1769513473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769513472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b671c36c7f1b341aa7e17b35fa4dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSelection: 1
+  selectionHistory: []
+--- !u!4 &1769513474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769513472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 876.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779317863
 GameObject:
   m_ObjectHideFlags: 0
@@ -12064,8 +12110,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programming:\n- Alvaro Racchumi\n- Erick Olazabal\nCharacter Art:\n- Lisa\n-
-    \nBackground art created by Kenney\nSounds: Various cc0 sources.\nMusic used:\n"
+  m_text: "Programming:\n- Alvaro Racchumi\n- Erick Olazabal\nUI & Character Art:\n-
+    Lisa\n- \nLevel art created by Kenney\nSounds: Various cc0 sources.\nMusic used:\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 727d1b966c6784346ae6ab51c8fe402b, type: 2}
   m_sharedMaterial: {fileID: -6652112273700950510, guid: 727d1b966c6784346ae6ab51c8fe402b, type: 2}
@@ -12466,10 +12512,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0, z: 0}
   secondDestination: {x: 0, y: 0, z: 0}
-  movementTime: 0.4
+  movementTime: 0.3
   OnStart: 0
   easeOrigin: 12
-  easeDestination: 12
+  easeDestination: 27
   canvasGroup: {fileID: 2079730781}
   canFade: 0
 --- !u!225 &2079730781
