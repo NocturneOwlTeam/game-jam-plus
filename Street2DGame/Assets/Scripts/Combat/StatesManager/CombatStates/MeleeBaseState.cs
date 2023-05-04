@@ -82,11 +82,6 @@ public class MeleeBaseState : IState
             attackPressedTimer = 2f;
         }
 
-        if (Input.GetButtonDown("Fire2"))
-        {
-            heavyAttackPressedTimer = 2f;
-        }
-
         if(Input.GetAxis("Vertical")> 0.1f)
         {
             upPressed = 2f;
@@ -125,7 +120,7 @@ public class MeleeBaseState : IState
                 {
                     //Para Spawnear el efecto.
                     //LeanPool.Spawn(hitEffect, collidersToDamage[i].transform);
-                    Debug.Log($"Enemy has taken {damage} damage");
+                    //Debug.Log($"Enemy has taken {damage} damage");
                     OnAttackLanded?.Invoke();
                     targetHealth.Damage(damage);
                     collidersDamaged.Add(collidersToDamage[i]);

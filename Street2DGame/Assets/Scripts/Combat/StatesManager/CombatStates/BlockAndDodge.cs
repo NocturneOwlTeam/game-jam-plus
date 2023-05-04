@@ -28,15 +28,7 @@ public class BlockAndDodge : IState
 
     public void OnUpdateState()
     {
-        //Nota: reemplazalo con otro boton
-        if (Input.GetButton("Fire2"))
-        {
 
-        }
-        else
-        {
-
-        }
     }
 }
 

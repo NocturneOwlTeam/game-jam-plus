@@ -6,7 +6,6 @@ public class CharacterManager : MonoBehaviour
     //Y el que establece el Idle State o neutro como la base, porque sino vamos a tener problemas manejando el resto.
     //Adicionalmente, sera el intermediario entre el CombatManager y los demas manejadores de estado.
 
-    //Para Erick, aqui gestionas cuando habilitar y desahilitar tu codigo de movimiento.
     [SerializeField]
     private StateMachineManager combatManager;
 
@@ -14,7 +13,9 @@ public class CharacterManager : MonoBehaviour
 
     public GameObject hitEffect;
 
-    public bool isPaused { get; set; }
+    float combatDelay = 0.7f;
+
+    float currentDelay = 0f;
 
     private void Start()
     {
@@ -26,14 +27,18 @@ public class CharacterManager : MonoBehaviour
 
     private void Update()
     {
-        //Verifica si el estado actual es Idle para que se cambie nomas al combate.
-        //NOTA: si quieren dar más condiciones (si esta sprinteando, en un roll, etc), conviertan esto asi:
-        //- Primero que se detecte la condicion del boton en si (vamos a poner fire1, pero en el input, deben cambiarlo a otro
-        //- Despues, usen el switch case para detectar que tipo de estado es.
-        if (Input.GetButton("Fire1") && combatManager.currentState.GetType() == typeof(IdleCombatState) && !isPaused)
+        //Esto por alguna razon no funciona en el build: && combatManager.currentState.GetType() == typeof(IdleCombatState)
+        //A veces odio Unity.
+        if (Input.GetButtonDown("Fire1") && currentDelay <= 0f)
         {
             //Cambia a estado nuevo
             combatManager.SetNextState(new MeleeEntryState());
+            currentDelay = combatDelay;
+        }
+
+        if(currentDelay > 0f)
+        {
+            currentDelay -= Time.deltaTime;
         }
     }
 }
