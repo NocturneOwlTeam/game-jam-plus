@@ -56,7 +56,7 @@ public class MeleeBaseState : IState
     public virtual void OnEnterState(StateMachineManager manager)
     {
         currentManager = manager;
-        animator = manager.GetComponent<Animator>();
+        animator = manager.GetComponentInChildren<Animator>();
         collidersDamaged = new List<Collider2D>();
         hitcollider = manager.GetComponent<CharacterManager>().hitbox;
         //hitEffect = manager.GetComponent<ComboCharacter>().hitEffect;

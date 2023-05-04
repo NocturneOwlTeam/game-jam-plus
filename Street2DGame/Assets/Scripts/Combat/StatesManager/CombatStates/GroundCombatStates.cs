@@ -131,7 +131,7 @@ public class HeavyGroundAttack: MeleeBaseState
         damage = 4;
         duration = 0.75f;
         //NOTA: reemplazalo por el nombre de la animacion relacionada a este ataque.
-        animator.SetTrigger($"Attack{attackIndex}");
+        animator.SetTrigger($"Attack");
         Debug.Log($"Ataque {attackIndex} activo");
     }
 

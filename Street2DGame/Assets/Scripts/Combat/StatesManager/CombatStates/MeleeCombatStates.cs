@@ -5,7 +5,7 @@ public class MeleeEntryState : IState
     public void OnEnterState(StateMachineManager manager)
     {
         //NOTA: aqui se pone la verificacion de si el jugador esta en el aire, en el suelo, o cualquier otra variable para el combo.
-        IState nextState = new GroundEntryState();
+        IState nextState = new HeavyGroundAttack();
         manager.SetNextState(nextState);
     }
 
