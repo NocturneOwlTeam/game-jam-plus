@@ -28,6 +28,9 @@ namespace Physical
         [Header("Player Stats")]
         public PlayerMoveStats stats;
 
+        [Header("Animation")]
+        [SerializeField]
+        private Animator playerAnimator;
         //General Movement
 
         public bool isPaused { get; set; }
@@ -44,6 +47,8 @@ namespace Physical
         //private bool jumpInputReleased;
 
         private bool canDoubleJump;
+
+        private bool isJumping;
 
         private float lastGroundedTime;
 
@@ -67,6 +72,10 @@ namespace Physical
             body = GetComponent<Rigidbody2D>();
             SetGravity(stats.gravityScale);
             currentTransform = transform;
+            if (!playerAnimator)
+            {
+                playerAnimator = GetComponentInChildren<Animator>();
+            }
             isFacingRight = true;
         }
 
@@ -107,17 +116,19 @@ namespace Physical
         private void SetInput()
         {
             horizontal = Input.GetAxis("Horizontal");
+            playerAnimator.SetFloat("Horizontal", Mathf.Abs(horizontal));
         }
 
         #region Jump
 
         private void JumpPhysics()
         {
+            isJumping = InMidAir();
+            playerAnimator.SetBool("MidAir", isJumping);
             if (Physics2D.OverlapBox(groundChecker.position, lengthChecker, 0, groundMasks))
             {
                 lastGroundedTime = stats.coyoteTime;
                 currentJumpStatus = JumpState.None;
-
                 if (stats.canDoubleJump)
                 {
                     canDoubleJump = true;

@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 262025962}
   - component: {fileID: 262025964}
   - component: {fileID: 262025963}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 378465584}
   - component: {fileID: 378465586}
   - component: {fileID: 378465585}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CanvasEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4230,7 +4230,7 @@ GameObject:
   - component: {fileID: 628590121}
   - component: {fileID: 628590120}
   - component: {fileID: 628590119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -4873,6 +4873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cbb2bb7c52904ec4d832706256ec63e2, type: 2}
+  playerAnimator: {fileID: 0}
   groundChecker: {fileID: 1385703538}
   lengthChecker: {x: 0.4, y: 0}
   groundMasks:
@@ -10819,7 +10820,7 @@ GameObject:
   - component: {fileID: 2037634225}
   - component: {fileID: 2037634224}
   - component: {fileID: 2037634223}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: HealthDummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11168,7 +11169,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.39245284, g: 1, b: 0.95464903, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
