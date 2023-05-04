@@ -59,7 +59,7 @@ public class MeleeBaseState : IState
         animator = manager.GetComponentInChildren<Animator>();
         collidersDamaged = new List<Collider2D>();
         hitcollider = manager.GetComponent<CharacterManager>().hitbox;
-        //hitEffect = manager.GetComponent<ComboCharacter>().hitEffect;
+        hitEffect = manager.GetComponent<CharacterManager>().hitEffect;
     }
 
     public virtual void OnExitState(StateMachineManager manager)
@@ -119,8 +119,8 @@ public class MeleeBaseState : IState
                 if (targetHealth && teamComponent && teamComponent.currentTeamIndex == TeamIndex.Enemy)
                 {
                     //Para Spawnear el efecto.
-                    //LeanPool.Spawn(hitEffect, collidersToDamage[i].transform);
-                    //Debug.Log($"Enemy has taken {damage} damage");
+                    GameObject effect = LeanPool.Spawn(hitEffect, collidersToDamage[i].transform.position, Quaternion.identity);
+                    LeanPool.Despawn(effect, 0.1f);
                     OnAttackLanded?.Invoke();
                     targetHealth.Damage(damage);
                     collidersDamaged.Add(collidersToDamage[i]);
