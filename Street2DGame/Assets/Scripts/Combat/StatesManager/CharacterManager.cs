@@ -14,6 +14,8 @@ public class CharacterManager : MonoBehaviour
 
     public GameObject hitEffect;
 
+    public bool isPaused { get; set; }
+
     private void Start()
     {
         if (!combatManager && !TryGetComponent(out combatManager))
@@ -28,7 +30,7 @@ public class CharacterManager : MonoBehaviour
         //NOTA: si quieren dar más condiciones (si esta sprinteando, en un roll, etc), conviertan esto asi:
         //- Primero que se detecte la condicion del boton en si (vamos a poner fire1, pero en el input, deben cambiarlo a otro
         //- Despues, usen el switch case para detectar que tipo de estado es.
-        if (Input.GetButton("Fire1") && combatManager.currentState.GetType() == typeof(IdleCombatState))
+        if (Input.GetButton("Fire1") && combatManager.currentState.GetType() == typeof(IdleCombatState) && !isPaused)
         {
             //Cambia a estado nuevo
             combatManager.SetNextState(new MeleeEntryState());

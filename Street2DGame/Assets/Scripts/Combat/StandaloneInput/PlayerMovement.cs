@@ -30,7 +30,7 @@ namespace Physical
 
         //General Movement
 
-        public bool canMove { get; set; }
+        public bool isPaused { get; set; }
 
         public PlayerStatus currentStatus { get; private set; }
 
@@ -97,7 +97,10 @@ namespace Physical
 
         private void FixedUpdate()
         {
-            MovementSystem();
+            if (!isPaused)
+            {
+                MovementSystem();
+            }
             JumpPhysics();
         }
 
