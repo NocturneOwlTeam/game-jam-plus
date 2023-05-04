@@ -9662,6 +9662,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5438839404374521168, guid: 322919e437d063d409afe189da39b164, type: 3}
+      propertyPath: canvasGroup
+      value: 
+      objectReference: {fileID: 1463635058689805482, guid: 47ce122fe1756f74c8b9e88746976006, type: 3}
     - target: {fileID: 5438839404577878521, guid: 322919e437d063d409afe189da39b164, type: 3}
       propertyPath: m_RootOrder
       value: 4
