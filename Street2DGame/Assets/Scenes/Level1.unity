@@ -9561,6 +9561,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1155531577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5438839403363951178, guid: 322919e437d063d409afe189da39b164, type: 3}
+  m_PrefabInstance: {fileID: 1167749436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1167749436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9597,9 +9602,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 753534785}
     - target: {fileID: 5438839403363951177, guid: 322919e437d063d409afe189da39b164, type: 3}
+      propertyPath: OnPause.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1155531577}
+    - target: {fileID: 5438839403363951177, guid: 322919e437d063d409afe189da39b164, type: 3}
       propertyPath: OnResume.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 753534785}
+    - target: {fileID: 5438839403363951177, guid: 322919e437d063d409afe189da39b164, type: 3}
+      propertyPath: OnResume.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1155531577}
     - target: {fileID: 5438839403363951177, guid: 322919e437d063d409afe189da39b164, type: 3}
       propertyPath: OnPause.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -10733,7 +10746,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5438839403363951177, guid: 322919e437d063d409afe189da39b164, type: 3}
   m_PrefabInstance: {fileID: 1167749436}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1155531577}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 122e2483966141d4fb9acd72e623f7a6, type: 3}
