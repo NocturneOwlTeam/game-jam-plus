@@ -88,33 +88,33 @@ public class MenuPagination : MonoBehaviour
         _canvasGroups[index].blocksRaycasts = isShown;
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Input.GetKeyDown("Left"))
-        {
-            MoveToNextPage();
-        }
-
-        if (Input.GetKeyDown("Right"))
-        {
-            MoveToPreviousPage();
-        }
-    }
-
     public void MoveToNextPage()
     {
-        if (currentPageIndex >= pages.Length - 1) return;
+        //if (currentPageIndex >= pages.Length - 1) return;
         PaginationAnimation(currentPageIndex, hidePageLeft.localPosition, false);
-        currentPageIndex++;
+        if (currentPageIndex >= pages.Length - 1)
+        {
+            currentPageIndex = 0;
+        }
+        else
+        {
+            currentPageIndex++;
+        }
         PaginationAnimation(currentPageIndex, shownPosition, true);
     }
 
     public void MoveToPreviousPage()
     {
-        if (currentPageIndex <= 0) return;
+        //if (currentPageIndex <= 0) return;
         PaginationAnimation(currentPageIndex, hidePageRight.localPosition, false);
-        currentPageIndex--;
+        if (currentPageIndex <= 0)
+        {
+            currentPageIndex = pages.Length - 1;
+        }
+        else
+        {
+            currentPageIndex--;
+        }
         PaginationAnimation(currentPageIndex, shownPosition, true);
     }
 
