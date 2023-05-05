@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
         finalScore.text = $"{currentScore}";
         highScore.text = $"{scoreSaver.score1}";
         canvasScore.enabled = true;
-        scorePanel.DOAnchorPosY(0, 0.35f);
+        scorePanel.DOAnchorPosY(0, 0.35f).SetUpdate(true);
     }
 
     public void SetLevel2Score()

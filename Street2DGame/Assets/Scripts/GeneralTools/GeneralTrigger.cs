@@ -6,9 +6,9 @@ public class GeneralTrigger : MonoBehaviour
     [SerializeField]
     private UnityEvent OnTrigger;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             OnTrigger.Invoke();
         }
