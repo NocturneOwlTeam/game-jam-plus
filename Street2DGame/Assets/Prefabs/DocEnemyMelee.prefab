@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b9a503073e83044a3f6f2e7865219e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6
+  damage: 5
 --- !u!1 &7274583863825203044
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12b1faac023cc44ab20d224535cd8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreIncrease: 100
+  scoreIncrease: 150
 --- !u!114 &7862774489795411713
 MonoBehaviour:
   m_ObjectHideFlags: 0
