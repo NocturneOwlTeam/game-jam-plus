@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using Nocturne.Health;
 using UnityEngine;
 
 public class Damager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float damage = 4f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player") && collision.TryGetComponent<HealthSystem>(out var health))
+        {
+            health.Damage(damage);
+        }
     }
 }

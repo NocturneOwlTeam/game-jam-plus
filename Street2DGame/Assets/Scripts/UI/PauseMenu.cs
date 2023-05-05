@@ -93,6 +93,13 @@ public class PauseMenu : MonoBehaviour
         OnPause.Invoke();
     }
 
+    public void InstaPause()
+    {
+        isPaused = true;
+        canPause = false;
+        Time.timeScale = 0;
+    }
+
     public void Resume()
     {
         isPaused = false;
