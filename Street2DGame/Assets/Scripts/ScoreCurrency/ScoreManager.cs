@@ -53,9 +53,9 @@ public class ScoreManager : MonoBehaviour
         currentScore += comboTotal;
         scoreSaver.score2 = Mathf.Max(scoreSaver.score2, currentScore);
         finalScore.text = $"{currentScore}";
-        highScore.text = $"{scoreSaver.score1}";
+        highScore.text = $"{scoreSaver.score2}";
         canvasScore.enabled = true;
-        scorePanel.DOAnchorPosY(0, 0.35f);
+        scorePanel.DOAnchorPosY(0, 0.35f).SetUpdate(true);
     }
 
     public void IncreaseScore(int score)

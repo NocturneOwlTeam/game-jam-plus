@@ -8,7 +8,7 @@ public class Healers : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collision.TryGetComponent<IHealthSystem>(out var health))
+        if (collision.CompareTag("Player") && collision.TryGetComponent<IHealthSystem>(out var health) && !health.AtFullHealth())
         {
             health.Heal(heal);
             LeanPool.Despawn(this);
