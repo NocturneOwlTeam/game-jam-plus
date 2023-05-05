@@ -1,20 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+using Lean.Pool;
+using Nocturne.GeneralTools;
 using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
 {
-    public Transform player;
-    public int speed;
-    public float movementRadius;
+    [SerializeField] private Transform player;
+    [SerializeField] private int speed;
+    [SerializeField] private float movementRadius;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform spawnPoint;
     private Animator anim;
     private bool isAttacking = false;
     private float attackInterval = 1f;
     private float attackTimer = 0f;
 
+    private Vector3 currentScale;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        if (!player)
+        {
+            player = Helpers.player.transform;
+        }
+        currentScale = transform.localScale;
     }
 
     private void Update()
@@ -44,7 +53,8 @@ public class EnemyIA : MonoBehaviour
             if (!isAttacking && attackTimer >= attackInterval)
             {
                 // Iniciar el ataque
-                //Attack();
+                Attack();
+                //anim.SetBool("Atack", true);
                 Invoke("Attack", 0.5f);
             }
         }
@@ -52,11 +62,11 @@ public class EnemyIA : MonoBehaviour
         // Girar al enemigo para que mire hacia el jugador
         if (direction.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Invertir la escala en el eje X
+            transform.localScale = new Vector3(-1 * currentScale.x, currentScale.y, currentScale.z); // Invertir la escala en el eje X
         }
         else if (direction.x > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1); // Restaurar la escala original en el eje X
+            transform.localScale = new Vector3(currentScale.x, currentScale.y, currentScale.z); // Restaurar la escala original en el eje X
         }
 
         // Actualizar el temporizador de ataque
@@ -73,9 +83,16 @@ public class EnemyIA : MonoBehaviour
 
         // Reiniciar el temporizador de ataque
         attackTimer = 0f;
+        print("ATTACK!");
 
         // Reiniciar la bandera de ataque después de 1 segundo
         Invoke("ResetAttackFlag", 1f);
+    }
+
+    public void LaunchBullet()
+    {
+        var newBullet = LeanPool.Spawn(bullet, spawnPoint.position,Quaternion.identity).GetComponent<bullet>();
+        newBullet.SetCourse(Mathf.Sign(transform.localScale.x));
     }
 
     private void ResetAttackFlag()

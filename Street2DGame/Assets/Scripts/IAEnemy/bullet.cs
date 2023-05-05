@@ -1,40 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
+using Lean.Pool;
+using Nocturne.Health;
 using UnityEngine;
 
 public class bullet : MonoBehaviour
-{ 
-  public float Speed = 10f;
-
-
-
-
-private Rigidbody2D rigidbody;
-public GameObject enemy;
-public Transform enemyTtan;
-
-private void Awake()
 {
-    rigidbody = GetComponent<Rigidbody2D>();
-        //Player = GameObject.FindGameObjectWithTag("Player");
-        enemyTtan = enemy.transform;
+    [SerializeField] private float Speed = 10f;
+    [SerializeField] private float damage = 4f;
+    private Rigidbody2D bulletRigidbody;
 
-}
+    private void Awake()
+    {
+        bulletRigidbody = GetComponent<Rigidbody2D>();
+    }
 
-// Start is called before the first frame update
-void Start()
-{
-    if (enemyTtan.localScale.x > 0)  //valor+ = player mira derecha
+    // Start is called before the first frame update
+    private void Start()
     {
-        rigidbody.velocity = new Vector2(Speed, rigidbody.velocity.y);
-        transform.localScale = new Vector3(1, 1, 1); // Orientar Bullet segun Player
+        //Evitara que sea persistente y llene la memoria.
+        //Creanme, es una pesadilla
+        LeanPool.Despawn(this, 5f);
     }
-    else
+
+    public void SetCourse(float cour)
     {
-        rigidbody.velocity = new Vector2(-Speed, rigidbody.velocity.y);
-        transform.localScale = new Vector3(-1, 1, 1);
-            Debug.Log("penes");
+        Speed *= cour;
+        bulletRigidbody.velocity = new Vector2(Speed, bulletRigidbody.velocity.y);
+        print("Listo");
     }
-  
-   }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && collision.TryGetComponent<HealthSystem>(out var health))
+        {
+            health.Damage(damage);
+            LeanPool.Despawn(this);
+        }
+    }
+
+    private void OnEnable()
+    {
+        Speed = 10f;
+    }
+
+    private void OnDisable()
+    {
+    }
 }

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3519187576409213385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.180513, y: 1.7349712, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1994738238, guid: 49ed59e3696e8114995bb69f87985cdd, type: 3}
+  m_SortingOrder: 90
+  m_Sprite: {fileID: 21300000, guid: 3896e3327f6be7246915cb9adc2a1989, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3519187576409213385}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -137,6 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
-  player: {fileID: 7041034264804141753, guid: ccb1312cbf5fa9b42b305aaf5aaa0984, type: 3}
-  enemy: {fileID: 5293282071526341953, guid: 774db721276d7e14c95aadc9edf88866, type: 3}
-  enemyTtan: {fileID: 5293282071526341965, guid: 774db721276d7e14c95aadc9edf88866, type: 3}
+  damage: 4
